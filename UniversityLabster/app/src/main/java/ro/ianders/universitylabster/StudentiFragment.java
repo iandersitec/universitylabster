@@ -9,10 +9,19 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import ro.ianders.universitylabster.dataformat.User;
+import ro.ianders.universitylabster.dataformat.UserAdapter;
 
 
 public class StudentiFragment extends ListFragment {
+
+
+    private UserAdapter userAdapter;
+    private View ultimulIViewFolosit = null; // la inceput nu a fost folosit nici un item din adapter
 
 
     public StudentiFragment() {
@@ -24,7 +33,20 @@ public class StudentiFragment extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        ArrayList<User> arrayListPentruTEST = new ArrayList<>();
+        arrayListPentruTEST.add(new User("AC", "paul.iusztin@gmail.com", "Paul", "Iusztin", "PaulakaPaul", 2));
+        arrayListPentruTEST.add(new User("AC", "dani.iuonac@gmail.com", "Dani", "Iuonac", "Lenox", 2));
+        arrayListPentruTEST.add(new User("AC", "mihai.guta@gmail.com", "Mihai", "Guta", "b;aba", 2));
+
+        userAdapter = new UserAdapter(this.getActivity(), arrayListPentruTEST);
+        setListAdapter(userAdapter);
+
+    }
 
 
+    @Override
+    public void onListItemClick(ListView l, View view, int position, long id) {
+        userAdapter.apareInterfataTrimitereLink(ultimulIViewFolosit, view, position);
+        ultimulIViewFolosit = view; // salvam ultimul view
     }
 }
