@@ -10,13 +10,17 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
+	private LinearLayout linStudentiTabBar;
+    private ImageButton btnTabAstaziNoutati;
+    private ImageButton btnTabSaptamanaNoutati;
+    private ImageButton btnTabLinkuri;
     private BottomNavigationView.OnNavigationItemSelectedListener
             mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -59,7 +63,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        
+		linStudentiTabBar = findViewById(R.id.linTabStudenti);
+        btnTabAstaziNoutati = findViewById(R.id.btnNoutatiAstazi);
+        btnTabSaptamanaNoutati = findViewById(R.id.btnNoutatiSaptamana);
+        btnTabLinkuri = findViewById(R.id.btnLinkuriPrimite);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
