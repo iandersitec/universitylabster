@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    tools:context="ro.ianders.universitylabster.RegisterActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:hint="Introduceti email-ul"
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:hint="Introduceti parola"
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_margin="15dp"
+        android:id="@+id/btnRegister"
+        android:text="Inregistrare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+
+        android:textAlignment="center"
+        android:text="Esti deja inregistrat? Logeaza-te aici!"
+        android:id="@+id/tvSignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>
