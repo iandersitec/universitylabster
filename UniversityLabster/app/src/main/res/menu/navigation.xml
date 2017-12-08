@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigationNewsFeed"
+        android:id="@+id/navigationNoutati"
         android:icon="@drawable/noutati_patrat"
-        android:title="@string/news_feed" />
+        android:title="@string/noutati" />
 
     <item
         android:id="@+id/navigationProfil"

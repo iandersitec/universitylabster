@@ -1,15 +1,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragNoutati"
+    android:id="@+id/fragOrar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    tools:context="ro.ianders.universitylabster.NoutatiFragment">
+    tools:context="ro.ianders.universitylabster.OrarFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="noutati" />
+        android:text="orar" />
 
 </FrameLayout>
