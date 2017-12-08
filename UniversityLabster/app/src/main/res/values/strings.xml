@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">University Labster</string>
-    <string name="news_feed">noutati</string>
+    <string name="noutati">noutati</string>
     <string name="profil">profil</string>
     <string name="orar">orar</string>
     <string name="studenti">studenti</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
