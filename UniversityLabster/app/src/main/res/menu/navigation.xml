@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigationNewsFeed"
+        android:icon="@drawable/noutati_patrat"
+        android:title="@string/news_feed" />
+
+    <item
+        android:id="@+id/navigationProfil"
+        android:icon="@drawable/profil_patrat"
+        android:title="@string/profil" />
+
+    <item
+        android:id="@+id/navigationOrar"
+        android:icon="@drawable/orar_patrat"
+        android:title="@string/orar" />
+
+    <item
+        android:id="@+id/navigationStudenti"
+        android:icon="@drawable/studenti_carte"
+        android:title="@string/studenti" />
+
+</menu>
