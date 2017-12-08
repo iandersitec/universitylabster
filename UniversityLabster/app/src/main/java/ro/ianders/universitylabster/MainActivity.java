@@ -63,10 +63,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-		linStudentiTabBar = findViewById(R.id.linTabStudenti);
-        btnTabAstaziNoutati = findViewById(R.id.btnNoutatiAstazi);
-        btnTabSaptamanaNoutati = findViewById(R.id.btnNoutatiSaptamana);
-        btnTabLinkuri = findViewById(R.id.btnLinkuriPrimite);
+		
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
