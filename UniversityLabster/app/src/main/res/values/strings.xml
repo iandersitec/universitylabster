@@ -4,5 +4,6 @@
     <string name="profil">profil</string>
     <string name="orar">orar</string>
     <string name="studenti">studenti</string>
-
+    <string name="student_inainte_de_email">email:</string>
+    <string name="trimitere_fisier_hint">trimite fisier aici</string>
 </resources>

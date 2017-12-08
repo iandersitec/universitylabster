@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvNume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/student_inainte_de_email" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linLinkDeTrimis"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etLinkDeTrimis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="10"
+            android:ems="10"
+            android:hint="@string/trimitere_fisier_hint"
+            android:inputType="textPersonName" />
+
+        <ImageButton
+            android:id="@+id/btnTrimite"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/trimitere_fisier_hint"
+            android:layout_gravity="fill_vertical|center_horizontal|start|end"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/trimite_link" />
+
+    </LinearLayout>
+</LinearLayout>
