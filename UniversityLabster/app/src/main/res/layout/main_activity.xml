@@ -18,37 +18,57 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tbMeniu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabNoutati"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:elevation="6dp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            />
+
+
         <LinearLayout
             android:id="@+id/linTabStudenti"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+            <!--
+                        <ImageButton
+                            android:id="@+id/btnNoutatiAstazi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#10000000"
+                            app:srcCompat="@drawable/noutati_patrat" />
 
-            <ImageButton
-                android:id="@+id/btnNoutatiAstazi"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#10000000"
-                app:srcCompat="@drawable/noutati_patrat" />
+                        <ImageButton
+                            android:id="@+id/btnNoutatiSaptamana"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#10000000"
+                            app:srcCompat="@drawable/studenti_carte" />
 
-            <ImageButton
-                android:id="@+id/btnNoutatiSaptamana"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#10000000"
-                app:srcCompat="@drawable/studenti_carte" />
-
-            <ImageButton
-                android:id="@+id/btnLinkuriPrimite"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#10000000"
-                app:srcCompat="@drawable/studenti_patrat" />
-
-        </LinearLayout>
+                        <ImageButton
+                            android:id="@+id/btnLinkuriPrimite"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#10000000"
+                            app:srcCompat="@drawable/studenti_patrat" />
+            -->
+                    </LinearLayout>
 
     </LinearLayout>
 

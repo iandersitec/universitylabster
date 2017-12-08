@@ -3,12 +3,16 @@ package ro.ianders.universitylabster;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnTabAstaziNoutati;
     private ImageButton btnTabSaptamanaNoutati;
     private ImageButton btnTabLinkuri;
+
+    private Toolbar toolbar;
+    private TabLayout tabNoutati;
 
     private BottomNavigationView.OnNavigationItemSelectedListener
             mOnNavigationItemSelectedListener
@@ -75,17 +82,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        linStudentiTabBar = findViewById(R.id.linTabStudenti);
-        btnTabAstaziNoutati = findViewById(R.id.btnNoutatiAstazi);
-        btnTabSaptamanaNoutati = findViewById(R.id.btnNoutatiSaptamana);
-        btnTabLinkuri = findViewById(R.id.btnLinkuriPrimite);
+
+        toolbar =  findViewById(R.id.tbMeniu);
+        setSupportActionBar(toolbar); // setting menu/tool bar
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener); // setting bottom navigation view
+
+        tabNoutati = findViewById(R.id.tabNoutati);
+        tabNoutati.addTab(tabNoutati.newTab().setIcon(R.drawable.orar_patrat));
+        tabNoutati.addTab(tabNoutati.newTab().setIcon(R.drawable.orar_patrat));
+        tabNoutati.addTab(tabNoutati.newTab().setIcon(R.drawable.orar_patrat));
+        tabNoutati.setTabGravity(TabLayout.GRAVITY_FILL); // setting tab bar pentru noutati
+
+        //cautat listener pentru tab
 
         navigation.setSelectedItemId(0);
 
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+       toolbar.inflateMenu(R.menu.tab_menu);
+       return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { // pentru optiuni meniu
+       /* int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item); */
+       return true;
+    }
 }
