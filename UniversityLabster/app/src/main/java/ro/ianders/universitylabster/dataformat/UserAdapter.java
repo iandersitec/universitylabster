@@ -43,7 +43,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         TextView tvEmail = viewLinie.findViewById(R.id.tvEmail);
 
         LinearLayout linLinkDeTrimis = viewLinie.findViewById(R.id.linLinkDeTrimis);
-        linLinkDeTrimis.setVisibility(View.GONE); // apare doar cand apasam un element din lista pentru a trimite linkul
+        linLinkDeTrimis.setVisibility(View.INVISIBLE); // apare doar cand apasam un element din lista pentru a trimite linkul
 
         tvNume.setText(String.format("%s %s", useri.get(position).getProfil().getPrenume(), useri.get(position).getProfil().getNumeFamilie()));
 
@@ -66,5 +66,16 @@ public class UserAdapter extends ArrayAdapter<User> {
         tvEmail.setText(String.format("%s %s", resDinStringXml, useri.get(position).getProfil().getEmail()));
 
         return  viewLinie;
+    }
+
+    public void apareInterfataTrimitereLink(View ultimulViewFolosit, View v, int position) {
+
+        if(ultimulViewFolosit != null) {
+            LinearLayout linLinkDeTrimisUltim = ultimulViewFolosit.findViewById(R.id.linLinkDeTrimis);
+            linLinkDeTrimisUltim.setVisibility(View.INVISIBLE);
+        }
+
+        LinearLayout linLinkDeTrimis = v.findViewById(R.id.linLinkDeTrimis);
+        linLinkDeTrimis.setVisibility(View.VISIBLE);
     }
 }

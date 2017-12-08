@@ -17,6 +17,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+        <LinearLayout
+            android:id="@+id/linTabStudenti"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnNoutatiAstazi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#10000000"
+                app:srcCompat="@drawable/noutati_patrat" />
+
+            <ImageButton
+                android:id="@+id/btnNoutatiSaptamana"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#10000000"
+                app:srcCompat="@drawable/studenti_carte" />
+
+            <ImageButton
+                android:id="@+id/btnLinkuriPrimite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#10000000"
+                app:srcCompat="@drawable/studenti_patrat" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView

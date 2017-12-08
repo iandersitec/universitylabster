@@ -6,4 +6,7 @@
     <string name="studenti">studenti</string>
     <string name="student_inainte_de_email">email:</string>
     <string name="trimitere_fisier_hint">trimite fisier aici</string>
+    <string name="noutati_de_astazi">Noutati de astazi</string>
+    <string name="noutati_saptamana">Noutati saptamana</string>
+    <string name="linkuri_primite">linkuri primite</string>
 </resources>

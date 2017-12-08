@@ -8,10 +8,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
 
+    private LinearLayout linStudentiTabBar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener
             mOnNavigationItemSelectedListener
@@ -27,21 +30,36 @@ public class MainActivity extends AppCompatActivity {
                      manager.beginTransaction()
                              .replace(R.id.linFragments, new NoutatiFragment())
                              .commit();
+
+                     linStudentiTabBar.setVisibility(View.VISIBLE);
+
                     return true;
                 case R.id.navigationProfil:
                     manager.beginTransaction()
                             .replace(R.id.linFragments, new ProfilFragment())
                             .commit();
+
+                    if(linStudentiTabBar.getVisibility() == View.VISIBLE)
+                        linStudentiTabBar.setVisibility(View.GONE);
+
                     return true;
                 case R.id.navigationOrar:
                     manager.beginTransaction()
                             .replace(R.id.linFragments, new OrarFragment())
                             .commit();
+
+                    if(linStudentiTabBar.getVisibility() == View.VISIBLE)
+                        linStudentiTabBar.setVisibility(View.GONE);
+
                     return true;
                 case R.id.navigationStudenti:
                     manager.beginTransaction()
                             .replace(R.id.linFragments, new StudentiFragment())
                             .commit();
+
+                    if(linStudentiTabBar.getVisibility() == View.VISIBLE)
+                        linStudentiTabBar.setVisibility(View.GONE);
+
                     return true;
 
             }
@@ -55,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-
+        linStudentiTabBar = findViewById(R.id.linTabStudenti);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
