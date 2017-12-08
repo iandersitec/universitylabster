@@ -1,14 +1,26 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragProfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ro.ianders.universitylabster.ProfilFragment">
+    tools:context="ro.ianders.universitylabster.ProfilFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/profil_welcome"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="profil" />
 
-</FrameLayout>
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Iesire"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
