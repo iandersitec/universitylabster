@@ -1,6 +1,7 @@
 package ro.ianders.universitylabster;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,7 +35,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //iau instanta de pe firebase
         firebaseAuth = FirebaseAuth.getInstance();
+
         progressDialog = new ProgressDialog(this);
 
         btnRegister = (Button) findViewById(R.id.btnRegister);
@@ -62,24 +65,29 @@ public class RegisterActivity extends AppCompatActivity {
         String password = etPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Te rog introdu email-ul", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Te rog introdu email-ul", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Te rog introdu parola", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Te rog introdu parola", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // daca a introdus emailul si parola atunci il inregistram
         progressDialog.setMessage("Inregistrare ....");
         progressDialog.show();
+
         firebaseAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
+
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterActivity.this, "Inregistrare realizata!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                            finish();
                         }
                         else{
                             Toast.makeText(RegisterActivity.this, "Eroare la inregistrare!", Toast.LENGTH_SHORT).show();
@@ -89,4 +97,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressDialog.dismiss();
+    }
 }
