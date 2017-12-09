@@ -6,62 +6,24 @@ package ro.ianders.universitylabster.dataformat;
 
 public class User {
 
-    protected String facultate;
-    protected Profil profil;
-    protected String userName;
-    protected int an;
+    private String userID;
+    private String email;
+    private String password;
 
-    public User(String facultate, Profil profil, String userName,int an) {
-        this.facultate = facultate;
-        this.profil = profil;
-        this.userName = userName;
-        this.an = an;
+    public User(String userID, String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
-    public User(String facultate, String email, String prenume, String numeFamilie, String userName, int an) {
-        this.facultate = facultate;
-        this.profil = new Profil(email, prenume, numeFamilie);
-        this.userName = userName;
-        this.an = an;
+    public String getUserID() {
+        return userID;
     }
 
-    public class Profil {
-        private String email;
-        private String prenume;
-        private String numeFamilie;
-
-        public Profil(String email, String prenume, String numeFamilie) {
-            this.email = email;
-            this.prenume = prenume;
-            this.numeFamilie = numeFamilie;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public String getPrenume() {
-            return prenume;
-        }
-
-        public String getNumeFamilie() {
-            return numeFamilie;
-        }
+    public String getEmail() {
+        return email;
     }
 
-    public String getFacultate() {
-        return facultate;
-    }
-
-    public Profil getProfil() {
-        return profil;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public int getAn() {
-        return an;
+    public String getPassword() {
+        return password;
     }
 }

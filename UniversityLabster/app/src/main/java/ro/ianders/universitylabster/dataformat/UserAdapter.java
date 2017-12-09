@@ -45,7 +45,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         LinearLayout linLinkDeTrimis = viewLinie.findViewById(R.id.linLinkDeTrimis);
         linLinkDeTrimis.setVisibility(View.INVISIBLE); // apare doar cand apasam un element din lista pentru a trimite linkul
 
-        tvNume.setText(String.format("%s %s", useri.get(position).getProfil().getPrenume(), useri.get(position).getProfil().getNumeFamilie()));
+        tvNume.setText(String.format("%s", useri.get(position).getEmail()));
 
         String resDinStringXml;
 
@@ -63,7 +63,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         }
 
 
-        tvEmail.setText(String.format("%s %s", resDinStringXml, useri.get(position).getProfil().getEmail()));
+        tvEmail.setText(String.format("%s", resDinStringXml, useri.get(position).getEmail()));
 
         return  viewLinie;
     }

@@ -16,8 +16,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
+
+import ro.ianders.universitylabster.dataformat.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -29,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //iau instanta de pe firebase
         firebaseAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
         progressDialog = new ProgressDialog(this);
 
@@ -94,8 +100,14 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+        //salvare account in firebase
+        String id = databaseReference.push().getKey();
+        User user = new User(id, email, password);
+        databaseReference.child(id).setValue(user);
+        Toast.makeText(this, "Account saved!", Toast.LENGTH_SHORT).show();
 
     }
+
 
     @Override
     protected void onResume() {
