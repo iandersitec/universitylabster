@@ -70,12 +70,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener); // setting bottom navigation view
 
-
-
-        //cautat listener pentru tab
-
-        navigation.setSelectedItemId(0);
-
+        navigation.setSelectedItemId(R.id.navigationNoutati); // selectam primul element
 
     }
 

@@ -4,10 +4,8 @@
     android:layout_height="match_parent"
     tools:context="ro.ianders.universitylabster.fraglistnoutati.LinkFrag">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/lvNoutatiLinkuri"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="link" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>

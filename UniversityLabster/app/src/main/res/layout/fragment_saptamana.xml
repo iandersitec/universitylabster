@@ -4,10 +4,9 @@
     android:layout_height="match_parent"
     tools:context="ro.ianders.universitylabster.fraglistnoutati.SaptamanaFrag">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="saptamana" />
 
+    <ListView
+        android:id="@+id/lvNoutatiSaptamana"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

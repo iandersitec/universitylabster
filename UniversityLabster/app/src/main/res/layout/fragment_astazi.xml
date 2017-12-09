@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     tools:context="ro.ianders.universitylabster.fraglistnoutati.AstaziFrag">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ListView
+        android:id="@+id/lvNoutatiAstazi"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="astazi" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

@@ -1,6 +1,7 @@
 package ro.ianders.universitylabster;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import ro.ianders.universitylabster.fraglistnoutati.AstaziFrag;
 import ro.ianders.universitylabster.fraglistnoutati.LinkFrag;
@@ -23,8 +25,7 @@ import ro.ianders.universitylabster.fraglistnoutati.SaptamanaFrag;
 public class NoutatiFragment extends Fragment {
 
     private TabLayout tabNoutati;
-    private ViewPager viewPager;
-    private FragmentPagerAdapter pagerAdapter;
+
 
     public NoutatiFragment() {
         // Required empty public constructor
@@ -45,31 +46,6 @@ public class NoutatiFragment extends Fragment {
         tabNoutati.setTabGravity(TabLayout.GRAVITY_FILL); // setting tab bar pentru noutati
 
 
-        viewPager = view.findViewById(R.id.tabPager);
-        pagerAdapter = new FragmentPagerAdapter(getFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-
-                switch (position) {
-                    case 0:
-                        return new AstaziFrag();
-                    case 1:
-                        return new SaptamanaFrag();
-                    case 2:
-                        return new LinkFrag();
-                }
-
-                return null;
-            }
-
-            @Override
-            public int getCount() {
-                return 3; // numarul de view-uri valabile
-            }
-        };
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabNoutati));
-
         // Inflate the layout for this fragment
         return view;
     }
@@ -79,31 +55,35 @@ public class NoutatiFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         final FragmentManager manager = getFragmentManager();
+        manager.beginTransaction()
+                .replace(R.id.fragContainerNoutatiInlocuit, new AstaziFrag())
+                .commit(); // sa se deschida cu ceva initial
 
         // listener pentru tab
         tabNoutati.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-              /*) try {
+                 try {
                     switch (tab.getTag().toString()) {
 
                         case "astazi":
-                            manager.beginTransaction()
-                                    .replace(R.id.fragContainer, new AstaziFrag())
-                                    .commit();
+                                manager.beginTransaction()
+                                        .replace(R.id.fragContainerNoutatiInlocuit, new AstaziFrag())
+                                        .commit();
                             break;
 
                         case "saptamana":
                             manager.beginTransaction()
-                                    .replace(R.id.fragContainer, new SaptamanaFrag())
+                                    .replace(R.id.fragContainerNoutatiInlocuit, new SaptamanaFrag())
                                     .commit();
                             break;
 
 
                         case "linkuri":
                             manager.beginTransaction()
-                                    .replace(R.id.fragContainer, new LinkFrag())
+                                    .replace(R.id.fragContainerNoutatiInlocuit, new LinkFrag())
                                     .commit();
                             break;
 
@@ -113,7 +93,7 @@ public class NoutatiFragment extends Fragment {
 
                 } catch (NullPointerException e) {
                     Toast.makeText(getContext(), "Nu s-au putut deschide noutatile de astazi!", Toast.LENGTH_SHORT).show();
-                } */
+                }
 
 
             }
@@ -131,8 +111,5 @@ public class NoutatiFragment extends Fragment {
 
     }
 
-    public TabLayout getTabNoutati() {
-        return tabNoutati;
-    }
 
 }
