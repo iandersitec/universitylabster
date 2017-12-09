@@ -22,13 +22,14 @@ public class ProfilFragment extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     private Button btnLogout;
-    private TextView tvNume;
-    private TextView tvAn;
-    private TextView tvGrupa;
-    private TextView tvFacultate;
-    private TextView tvSectie;
-    private TextView tvSubgrupa;
-    private TextView tvDContact;
+    private Button btnEdit;
+    private TextView etNume;
+    private TextView etAn;
+    private TextView etEmail;
+    private TextView etFacultate;
+    private TextView etUsername;
+    private TextView etPrenume;
+    private TextView etParola;
 
 
     public ProfilFragment() {
@@ -44,13 +45,13 @@ public class ProfilFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
 
-        tvNume = (TextView) view.findViewById(R.id.tvNume);
-        tvAn = (TextView) view.findViewById(R.id.tvAn);
-        tvFacultate = (TextView) view.findViewById(R.id.tvFacultate);
-        tvSectie = (TextView) view.findViewById(R.id.tvSectie);
-        tvGrupa = (TextView) view.findViewById(R.id.tvGrupa);
-        tvDContact = (TextView) view.findViewById(R.id.tvDContact);
-        tvSubgrupa = (TextView) view.findViewById(R.id.tvSubgrupa);
+        etNume = (TextView) view.findViewById(R.id.etLastName);
+        etAn = (TextView) view.findViewById(R.id.etYear);
+        etFacultate = (TextView) view.findViewById(R.id.etFaculty);
+        etEmail = (TextView) view.findViewById(R.id.etEmail);
+        etParola = (TextView) view.findViewById(R.id.etPassword);
+        etPrenume = (TextView) view.findViewById(R.id.etFirstName);
+        etUsername = (TextView) view.findViewById(R.id.etUsername);
 
         btnLogout = (Button) view.findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {

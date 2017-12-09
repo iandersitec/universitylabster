@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         //artificiu pentru populare lista studenti
         for(User user: userList)
             DataService.getInstance().salvareUser(user);
-            
+
     }
 
     @Override
