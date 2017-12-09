@@ -33,13 +33,9 @@ public class StudentiFragment extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ArrayList<User> arrayListPentruTEST = new ArrayList<>();
-//        arrayListPentruTEST.add(new User("AC", "paul.iusztin@gmail.com", "Paul", "Iusztin", "PaulakaPaul", 2));
-//        arrayListPentruTEST.add(new User("AC", "dani.iuonac@gmail.com", "Dani", "Iuonac", "Lenox", 2));
-//        arrayListPentruTEST.add(new User("AC", "mihai.guta@gmail.com", "Mihai", "Guta", "b;aba", 2));
 
-        userAdapter = new UserAdapter(this.getActivity(), arrayListPentruTEST);
-        setListAdapter(userAdapter);
+      //  userAdapter = new UserAdapter(this.getActivity(), arrayListPentruTEST);
+       // setListAdapter(userAdapter);
 
     }
 

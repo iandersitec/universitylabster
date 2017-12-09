@@ -61,14 +61,15 @@ public class RegisterActivity extends AppCompatActivity {
         tvSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                finish();
             }
         });
     }
 
     private void registerUser(){
-        String email = etEmail.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
+        final String email = etEmail.getText().toString().trim();
+        final String password = etPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(getApplicationContext(),"Te rog introdu email-ul", Toast.LENGTH_SHORT).show();
@@ -93,6 +94,13 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterActivity.this, "Inregistrare realizata!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+
+                            //salvare account in firebase
+                            String id = databaseReference.push().getKey();
+                            User user = new User(id, email, password);
+                            databaseReference.child(id).setValue(user);
+                            Toast.makeText(RegisterActivity.this, "Account saved!", Toast.LENGTH_SHORT).show();
+
                             finish();
                         }
                         else{
@@ -100,11 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
-        //salvare account in firebase
-        String id = databaseReference.push().getKey();
-        User user = new User(id, email, password);
-        databaseReference.child(id).setValue(user);
-        Toast.makeText(this, "Account saved!", Toast.LENGTH_SHORT).show();
+
 
     }
 
