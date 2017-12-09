@@ -1,14 +1,81 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragProfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="ro.ianders.universitylabster.ProfilFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvProfilulmeu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="profil" />
+        android:layout_height="wrap_content"
+        android:text="Profilul meu"
+        android:textAlignment="center"
+        android:layout_margin="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/llProf"
+        android:layout_below="@id/tvProfilulmeu">
 
-</FrameLayout>
+   <TextView
+       android:id="@+id/tvNume"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Nume:"
+       android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tvFacultate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Facultate: "
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tvAn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="An: "
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tvSectie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sectie: "
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tvGrupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grupa: "
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subgrupa: "
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tvDContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de Contact: "
+        android:layout_margin ="10dp"/>
+</LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llProf"
+        android:layout_marginBottom="50dp"
+
+        android:text="Iesire" />
+
+</RelativeLayout>
