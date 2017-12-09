@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private NoutatiFragment noutatiFragment;
     private DatabaseReference databaseUsers;
-    List<User> userList;
+    protected  List<User> userList;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener

@@ -68,8 +68,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(){
-        String email = etEmail.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
+        final String email = etEmail.getText().toString().trim();
+        final String password = etPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(getApplicationContext(),"Te rog introdu email-ul", Toast.LENGTH_SHORT).show();
@@ -99,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
                             String id = databaseReference.push().getKey();
                             User user = new User(id, email, password);
                             databaseReference.child(id).setValue(user);
-                            Toast.makeText(this, "Account saved!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Account saved!", Toast.LENGTH_SHORT).show();
 
                             finish();
                         }
