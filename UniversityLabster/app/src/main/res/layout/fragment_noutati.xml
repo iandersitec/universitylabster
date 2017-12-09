@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context="ro.ianders.universitylabster.NoutatiFragment">
 
+
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tabNoutati"
         android:layout_width="match_parent"
@@ -16,17 +18,12 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/tabPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
 
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fragContainer"
+        android:id="@+id/fragContainerNoutatiInlocuit"
         />
 
 </LinearLayout>

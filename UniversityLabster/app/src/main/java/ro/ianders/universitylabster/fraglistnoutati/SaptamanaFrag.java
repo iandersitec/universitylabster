@@ -2,6 +2,7 @@ package ro.ianders.universitylabster.fraglistnoutati;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,25 @@ import ro.ianders.universitylabster.R;
 public class SaptamanaFrag extends Fragment {
 
 
+    private int fragVal;
+
     public SaptamanaFrag() {
         // Required empty public constructor
+    }
+
+    public static AstaziFrag init(int val) {
+        AstaziFrag frag = new AstaziFrag();
+
+        Bundle args = new Bundle(); // dictionar cu chei stringuri
+        args.putInt("val", val);
+        frag.setArguments(args); // ia argumente ca si bundle
+        return frag;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        fragVal = getArguments() != null ? getArguments().getInt("val") : 1;
     }
 
 
