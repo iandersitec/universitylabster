@@ -4,9 +4,14 @@ package ro.ianders.universitylabster.fraglistnoutati;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import ro.ianders.universitylabster.R;
 
@@ -15,26 +20,16 @@ import ro.ianders.universitylabster.R;
  */
 public class SaptamanaFrag extends Fragment {
 
-
-    private int fragVal;
+    ListView lvNoutatiSaptamana;
 
     public SaptamanaFrag() {
         // Required empty public constructor
     }
 
-    public static AstaziFrag init(int val) {
-        AstaziFrag frag = new AstaziFrag();
-
-        Bundle args = new Bundle(); // dictionar cu chei stringuri
-        args.putInt("val", val);
-        frag.setArguments(args); // ia argumente ca si bundle
-        return frag;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fragVal = getArguments() != null ? getArguments().getInt("val") : 1;
     }
 
 
@@ -42,7 +37,19 @@ public class SaptamanaFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_saptamana, container, false);
+        View view = inflater.inflate(R.layout.fragment_saptamana, container, false);
+        lvNoutatiSaptamana = view.findViewById(R.id.lvNoutatiSaptamana);
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        ArrayList<String> a = new ArrayList<String>() {{
+            add("Paul Saptamana"); }};
+        lvNoutatiSaptamana.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, a));
     }
 
 }

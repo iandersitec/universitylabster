@@ -1,6 +1,7 @@
 package ro.ianders.universitylabster;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -53,6 +54,7 @@ public class NoutatiFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
 
         final FragmentManager manager = getFragmentManager();
         manager.beginTransaction()
