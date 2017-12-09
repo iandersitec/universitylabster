@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import ro.ianders.universitylabster.DataService.DataService;
 import ro.ianders.universitylabster.dataformat.User;
 import ro.ianders.universitylabster.dataformat.UserAdapter;
 
@@ -33,9 +35,12 @@ public class StudentiFragment extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
-      //  userAdapter = new UserAdapter(this.getActivity(), arrayListPentruTEST);
-       // setListAdapter(userAdapter);
+        userAdapter = new UserAdapter(getContext(), DataService.getInstance().useri);
+        for(User user : DataService.getInstance().useri) {
+            Log.e("taaaaaaag", user.getEmail());
+        }
+        Log.e("ssss", "ssssssss");
+        setListAdapter(userAdapter);
 
     }
 

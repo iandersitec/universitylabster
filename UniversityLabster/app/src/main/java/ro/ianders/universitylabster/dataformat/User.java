@@ -1,5 +1,7 @@
 package ro.ianders.universitylabster.dataformat;
 
+import java.util.HashMap;
+
 /**
  * Created by paul.iusztin on 08.12.2017.
  */
@@ -70,5 +72,22 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+
+    public HashMap<String, Object> toMap() {
+        HashMap<String, Object> myMap = new HashMap<>();
+
+
+        myMap.put("email", email);
+        myMap.put("userID", userID);
+        myMap.put("firstName", firstName);
+        myMap.put("lastName", lastName);
+        myMap.put("year", year);
+        myMap.put("faculty", faculty);
+        myMap.put("password", password);
+        myMap.put("username", username);
+
+        return myMap;
     }
 }

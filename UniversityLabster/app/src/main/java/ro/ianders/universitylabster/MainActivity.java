@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import ro.ianders.universitylabster.DataService.DataService;
 import ro.ianders.universitylabster.dataformat.User;
 import ro.ianders.universitylabster.dataformat.UserAdapter;
 
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        databaseUsers.addValueEventListener(new ValueEventListener() {
+       /* databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userList.clear();
@@ -117,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
+
+       DataService.getInstance().initializereListneres();
+
     }
 
     @Override

@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //iau instanta de pe firebase
         firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        databaseReference = FirebaseDatabase.getInstance().getReference("useri");
 
         progressDialog = new ProgressDialog(this);
 

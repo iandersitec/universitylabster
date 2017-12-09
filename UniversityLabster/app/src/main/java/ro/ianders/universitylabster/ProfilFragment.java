@@ -1,6 +1,7 @@
 package ro.ianders.universitylabster;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ import org.w3c.dom.Text;
  */
 public class ProfilFragment extends Fragment {
 
-   // private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
     private Button btnLogout;
     private TextView tvNume;
     private TextView tvAn;
@@ -32,7 +33,6 @@ public class ProfilFragment extends Fragment {
 
     public ProfilFragment() {
         // Required empty public constructor
-        //firebaseAuth = firebase;
     }
 
 
@@ -40,6 +40,7 @@ public class ProfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        firebaseAuth = FirebaseAuth.getInstance();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
 
@@ -52,13 +53,15 @@ public class ProfilFragment extends Fragment {
         tvSubgrupa = (TextView) view.findViewById(R.id.tvSubgrupa);
 
         btnLogout = (Button) view.findViewById(R.id.btnLogout);
-       /* btnLogout.setOnClickListener(new View.OnClickListener() {
+        btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 firebaseAuth.signOut();
+                startActivity(new Intent(getContext(), LoginActivity.class));
+                getActivity().finish();
             }
         });
-*/
+
         return view;
     }
 
