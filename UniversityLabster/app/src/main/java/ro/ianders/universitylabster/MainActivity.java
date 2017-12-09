@@ -16,12 +16,7 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private LinearLayout linStudentiTabBar;
-    private ImageButton btnTabAstaziNoutati;
-    private ImageButton btnTabSaptamanaNoutati;
-    private ImageButton btnTabLinkuri;
-
+    private LinearLayout linFragments;
     private Toolbar toolbar;
     private TabLayout tabNoutati;
 
@@ -40,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
                              .replace(R.id.linFragments, new NoutatiFragment())
                              .commit();
 
-                     linStudentiTabBar.setVisibility(View.VISIBLE);
 
                     return true;
                 case R.id.navigationProfil:
@@ -48,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
                             .replace(R.id.linFragments, new ProfilFragment())
                             .commit();
 
-                    if(linStudentiTabBar.getVisibility() == View.VISIBLE)
-                        linStudentiTabBar.setVisibility(View.GONE);
 
                     return true;
                 case R.id.navigationOrar:
@@ -57,17 +49,11 @@ public class MainActivity extends AppCompatActivity {
                             .replace(R.id.linFragments, new OrarFragment())
                             .commit();
 
-                    if(linStudentiTabBar.getVisibility() == View.VISIBLE)
-                        linStudentiTabBar.setVisibility(View.GONE);
-
-                    return true;
+                  return true;
                 case R.id.navigationStudenti:
                     manager.beginTransaction()
                             .replace(R.id.linFragments, new StudentiFragment())
                             .commit();
-
-                    if(linStudentiTabBar.getVisibility() == View.VISIBLE)
-                        linStudentiTabBar.setVisibility(View.GONE);
 
                     return true;
 
@@ -81,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        linFragments = findViewById(R.id.linFragments);
 
 
         toolbar =  findViewById(R.id.tbMeniu);
