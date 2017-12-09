@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         //database user
-        databaseUsers = FirebaseDatabase.getInstance().getReference("users");
-        userList = new ArrayList<>();
+        databaseUsers = DataService.getInstance().databaseReferenceUseri;
+        userList = DataService.getInstance().useri;
         //
         toolbar =  findViewById(R.id.tbMeniu);
         setSupportActionBar(toolbar); // setting menu/tool bar
@@ -98,30 +98,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-       /* databaseUsers.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                userList.clear();
+        DataService.getInstance().initializereListneres();
 
-                for(DataSnapshot userSnapshot: dataSnapshot.getChildren()){
-                    User user = userSnapshot.getValue(User.class);
-                    Log.e("Email:", user.getEmail());
-                    userList.add(user);
-                }
-
-               // UserAdapter adapter = new UserAdapter(MainActivity.this, userList);
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });*/
-
-       DataService.getInstance().initializereListneres();
-
+        //artificiu pentru populare lista studenti
+        for(User user: userList)
+            DataService.getInstance().salvareUser(user);
+            
     }
 
     @Override
