@@ -61,7 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
         tvSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                finish();
             }
         });
     }
@@ -93,6 +94,13 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterActivity.this, "Inregistrare realizata!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+
+                            //salvare account in firebase
+                            String id = databaseReference.push().getKey();
+                            User user = new User(id, email, password);
+                            databaseReference.child(id).setValue(user);
+                            Toast.makeText(this, "Account saved!", Toast.LENGTH_SHORT).show();
+
                             finish();
                         }
                         else{
@@ -100,11 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
-        //salvare account in firebase
-        String id = databaseReference.push().getKey();
-        User user = new User(id, email, password);
-        databaseReference.child(id).setValue(user);
-        Toast.makeText(this, "Account saved!", Toast.LENGTH_SHORT).show();
+
 
     }
 
