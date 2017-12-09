@@ -9,12 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private TabLayout tabNoutati;
+
+    private NoutatiFragment noutatiFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener
             mOnNavigationItemSelectedListener
@@ -28,27 +30,25 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                  case R.id.navigationNoutati:
                      manager.beginTransaction()
-                             .replace(R.id.linFragments, new NoutatiFragment())
+                             .replace(R.id.frameMainReplaceFrag, new NoutatiFragment())
                              .commit();
-
 
                     return true;
                 case R.id.navigationProfil:
                     manager.beginTransaction()
-                            .replace(R.id.linFragments, new ProfilFragment())
+                            .replace(R.id.frameMainReplaceFrag, new ProfilFragment())
                             .commit();
-
 
                     return true;
                 case R.id.navigationOrar:
                     manager.beginTransaction()
-                            .replace(R.id.linFragments, new OrarFragment())
+                            .replace(R.id.frameMainReplaceFrag, new OrarFragment())
                             .commit();
 
                   return true;
                 case R.id.navigationStudenti:
                     manager.beginTransaction()
-                            .replace(R.id.linFragments, new StudentiFragment())
+                            .replace(R.id.frameMainReplaceFrag, new StudentiFragment())
                             .commit();
 
                     return true;
@@ -70,11 +70,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener); // setting bottom navigation view
 
-        tabNoutati = findViewById(R.id.tabNoutati);
-        tabNoutati.addTab(tabNoutati.newTab().setIcon(R.drawable.orar_patrat));
-        tabNoutati.addTab(tabNoutati.newTab().setIcon(R.drawable.orar_patrat));
-        tabNoutati.addTab(tabNoutati.newTab().setIcon(R.drawable.orar_patrat));
-        tabNoutati.setTabGravity(TabLayout.GRAVITY_FILL); // setting tab bar pentru noutati
+
 
         //cautat listener pentru tab
 
