@@ -63,7 +63,7 @@ public class AstaziFrag extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        Curs[] cursuri = new Curs[2];
+         /*Curs[] cursuri = new Curs[2];
 
         Curs c = new Curs("Intelligence 101", "Faculty of Intelligence", "Building of Intelligence", "1", "12:00", "Luni",
                 "Miercuri", "", "Arnold Einstein");
@@ -74,7 +74,7 @@ public class AstaziFrag extends Fragment {
         cursuri[0] = c;
         cursuri[1] = c1;
 
-        DataService.getInstance().salvareCurs(cursuri);
+        DataService.getInstance().salvareCurs(cursuri); */
 
 
         OraFacultateAdapter adapter = new OraFacultateAdapter(getContext(), DataService.getInstance().cursuri);

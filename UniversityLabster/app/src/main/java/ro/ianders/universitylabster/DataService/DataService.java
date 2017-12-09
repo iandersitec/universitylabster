@@ -77,7 +77,7 @@ public class DataService {
 
                 cursuri.clear();
 
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.child("cursuri").getChildren()) {
                     Curs curs = dataSnapshot1.getValue(Curs.class);
                     cursuri.add(curs);
                 }
@@ -111,7 +111,7 @@ public class DataService {
 
         for(User user : useri) {
             key = databaseReferenceUseri.push().getKey();
-            u.put("useri/"+key, user.toMap());
+            u.put(key, user.toMap());
         }
 
         databaseReferenceUseri.updateChildren(u); // salveaza useri
@@ -126,7 +126,7 @@ public class DataService {
 
         for(Curs curs : cursuri) {
             key = databaseReferenceCursuri.push().getKey();
-            u.put("cursuri/"+key, curs.toMap());
+            u.put("cursuri/ " + key, curs.toMap());
         }
 
         databaseReferenceCursuri.updateChildren(u); // salveaza cursuri

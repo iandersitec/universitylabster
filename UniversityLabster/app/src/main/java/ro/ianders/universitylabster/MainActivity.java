@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ro.ianders.universitylabster.DataService.DataService;
+import ro.ianders.universitylabster.dataformat.Curs;
 import ro.ianders.universitylabster.dataformat.User;
 import ro.ianders.universitylabster.dataformat.UserAdapter;
 
@@ -100,9 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
         DataService.getInstance().initializereListneres();
 
-        //artificiu pentru populare lista studenti
-        for(User user: userList)
-            DataService.getInstance().salvareUser(user);
 
     }
 
