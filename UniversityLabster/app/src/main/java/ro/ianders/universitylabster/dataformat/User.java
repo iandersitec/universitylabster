@@ -30,7 +30,7 @@ public class User {
         private String prenume;
         private String numeFamilie;
 
-        private Profil(String email, String prenume, String numeFamilie) {
+        public Profil(String email, String prenume, String numeFamilie) {
             this.email = email;
             this.prenume = prenume;
             this.numeFamilie = numeFamilie;
