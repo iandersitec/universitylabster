@@ -31,11 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    private NoutatiFragment noutatiFragment;
-    private DatabaseReference databaseUsers;
-    protected  List<User> userList;
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener
             mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -81,10 +76,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        //database user
-        databaseUsers = DataService.getInstance().databaseReferenceUseri;
-        userList = DataService.getInstance().useri;
-        //
+
+
+
         toolbar =  findViewById(R.id.tbMeniu);
         setSupportActionBar(toolbar); // setting menu/tool bar
 
