@@ -13,7 +13,6 @@ import java.util.HashMap;
 
 import ro.ianders.universitylabster.dataformat.Curs;
 import ro.ianders.universitylabster.dataformat.User;
-import ro.ianders.universitylabster.dataformat.UserAdapter;
 
 /**
  * Created by paul.iusztin on 09.12.2017.
@@ -76,6 +75,12 @@ public class DataService {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                cursuri.clear();
+
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Curs curs = dataSnapshot1.getValue(Curs.class);
+                    cursuri.add(curs);
+                }
             }
 
             @Override
@@ -110,6 +115,21 @@ public class DataService {
         }
 
         databaseReferenceUseri.updateChildren(u); // salveaza useri
+    }
+
+
+    public void salvareCurs(Curs... cursuri) {
+
+
+        String key;
+        HashMap<String, Object> u = new HashMap<>(); // date de salvat
+
+        for(Curs curs : cursuri) {
+            key = databaseReferenceCursuri.push().getKey();
+            u.put("cursuri/"+key, curs.toMap());
+        }
+
+        databaseReferenceCursuri.updateChildren(u); // salveaza cursuri
     }
 
 }
