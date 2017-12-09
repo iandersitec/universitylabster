@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,12 +23,13 @@ import ro.ianders.universitylabster.R;
  * Created by paul.iusztin on 09.12.2017.
  */
 
-public class OraFacultateAdapter extends ArrayAdapter<OraFacultate> {
+public class OraFacultateAdapter extends ArrayAdapter<Curs> {
 
     private Context context;
-    private ArrayList<OraFacultate> ore;
+    private ArrayList<Curs> ore;
 
-    public OraFacultateAdapter(@NonNull Context context, @NonNull ArrayList<OraFacultate> objects) {
+
+    public OraFacultateAdapter(@NonNull Context context, @NonNull ArrayList<Curs> objects) {
         super(context, R.layout.linie_curs_checkin, objects);
         this.context = context;
         ore = objects;
@@ -58,8 +60,7 @@ public class OraFacultateAdapter extends ArrayAdapter<OraFacultate> {
         tvCursLung.setText(numeLung);
 
         TextView tvOra = viewLinie.findViewById(R.id.tvOra);
-        tvOra.setText(String.format("%s-%s", ore.get(position).getSchedules().get(0).getStartTime(), ore.get(position).getSchedules().get(0).getEndTime()));
-
+        tvOra.setText(String.format("%s-%s", ore.get(position).getStartTime(), ore.get(position).getEndTime()));
 
         return  viewLinie;
     }

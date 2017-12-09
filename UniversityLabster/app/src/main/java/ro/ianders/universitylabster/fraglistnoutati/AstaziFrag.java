@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -21,9 +22,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ro.ianders.universitylabster.DataService.DataService;
 import ro.ianders.universitylabster.R;
 import ro.ianders.universitylabster.dataformat.Curs;
-import ro.ianders.universitylabster.dataformat.OraFacultate;
 import ro.ianders.universitylabster.dataformat.OraFacultateAdapter;
 
 /**
@@ -61,34 +62,33 @@ public class AstaziFrag extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ArrayList<OraFacultate> ore = new ArrayList<>();
 
-        Curs c = new Curs("Programarea Orientata pe Obiecte");
-        ore.add(c);
-        c.addSchedule(new Date(), "10:00", "8:00");
+        Curs[] cursuri = new Curs[2];
 
-        c = new Curs("Arhitectura Calculatoarelor");
-        ore.add(c);
-        c.addSchedule(new Date(), "20:00", "18:00");
+        Curs c = new Curs("Intelligence 101", "Faculty of Intelligence", "Building of Intelligence", "1", "12:00", "Luni",
+                "Miercuri", "", "Arnold Einstein");
 
-        OraFacultateAdapter adapter = new OraFacultateAdapter(getContext(), ore);
+        Curs c1 = new Curs("Intelligence 201", "Faculty of Intelligence", "Building of Intelligence", "2", "13:00", "Joi", "11:00",
+                "alber@wiseu.edu", "Alberst Scwarzengger" );
+
+        cursuri[0] = c;
+        cursuri[1] = c1;
+
+        DataService.getInstance().salvareCurs(cursuri);
+
+
+        OraFacultateAdapter adapter = new OraFacultateAdapter(getContext(), DataService.getInstance().cursuri);
 
         lvNoutatiAstazi.setAdapter(adapter);
 
         lvNoutatiAstazi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
-               /* CheckBox cbCheckin = view.findViewById(R.id.cbCheckin);
 
-                if(cbCheckin.isChecked())
-                    Toast.makeText(getContext(), "checked", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getContext(), "unchecked", Toast.LENGTH_SHORT).show();
 
-                Log.e("                      ", "you are in");
-             //  cbCheckin.setBackground(getResources().getDrawable(R.drawable.noutati_patrat, null)); */
-                Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
+                ImageView iwChecking = view.findViewById(R.id.iwCheckin);
+
+
 
             }
         });
