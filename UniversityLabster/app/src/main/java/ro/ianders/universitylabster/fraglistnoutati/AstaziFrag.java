@@ -30,6 +30,7 @@ import ro.ianders.universitylabster.DataService.DataService;
 import ro.ianders.universitylabster.R;
 import ro.ianders.universitylabster.dataformat.Curs;
 import ro.ianders.universitylabster.dataformat.OraFacultateAdapter;
+import ro.ianders.universitylabster.dataformat.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -119,6 +120,45 @@ public class AstaziFrag extends Fragment {
 
 
                 } */
+
+
+              String[] numeCheckins = DataService.getInstance().cursuri.get(position).getCheckings().split("#");
+              boolean esteCheckinuit = false;
+
+
+                  for (String nume : numeCheckins)
+                      for (User user : DataService.getInstance().useri)
+                          if (nume.equals(user.getFirstName()) || nume.equals(user.getLastName()))
+                              if (user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
+                                  esteCheckinuit = true;
+
+              //get user
+                User currentUser = null;
+                for(User user : DataService.getInstance().useri)
+                    if(user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
+                        currentUser = user;
+
+              if(esteCheckinuit) {
+
+                    String[] checkIns =  DataService.getInstance().cursuri.get(position).getCheckings().split("#");
+                    StringBuilder wholeCheckin = new StringBuilder();
+
+                    for(String s : checkIns)
+                        if(currentUser != null)
+                            if(!(s.equals(currentUser.getFirstName()) || s.equals(currentUser.getLastName())))
+                                wholeCheckin.append(s).append("#");
+
+                  DataService.getInstance().cursuri.get(position).addWholeCheckin(wholeCheckin.toString());
+
+                  iwChecking.setBackgroundResource(R.drawable.cross); // il scoaten de la check in
+              } else {
+
+                  if(currentUser != null)
+                      DataService.getInstance().cursuri.get(position).addCheckin(currentUser.getLastName());
+
+                  iwChecking.setBackgroundResource(R.drawable.check); // il punem la check in
+              }
+
             }
 
 

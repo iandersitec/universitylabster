@@ -42,6 +42,10 @@ public class Curs {
         checkins += numecheckin + "#";
     }
 
+    public void addWholeCheckin(String addWholeCheckin) {
+        checkins = addWholeCheckin;
+    }
+
     public String getZi() {
         return zi;
     }

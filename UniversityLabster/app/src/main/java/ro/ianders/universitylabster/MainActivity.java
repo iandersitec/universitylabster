@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
 
-
         toolbar =  findViewById(R.id.tbMeniu);
         setSupportActionBar(toolbar); // setting menu/tool bar
 
