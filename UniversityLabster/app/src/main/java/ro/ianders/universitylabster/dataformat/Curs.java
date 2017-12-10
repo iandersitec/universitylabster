@@ -21,7 +21,7 @@ public class Curs {
     protected String emailProfesor;
     protected String numeProfesor;
 
-    protected HashMap<String, Object> checkings;
+    protected String checkins="";
 
     public Curs() {
     }
@@ -36,12 +36,10 @@ public class Curs {
         this.startTime = startTime;
         this.emailProfesor = emailProfesor;
         this.numeProfesor = numeProfesor;
-
-        checkings = new HashMap<>();
     }
 
     public void addCheckin(String numecheckin) {
-        checkings.put(numecheckin, numecheckin);
+        checkins += numecheckin + "#";
     }
 
     public String getZi() {
@@ -86,8 +84,8 @@ public class Curs {
         return an;
     }
 
-    public HashMap<String, Object> getCheckings() {
-        return checkings;
+    public String getCheckings() {
+        return checkins;
     }
 
     public HashMap<String, Object> toMap() {
@@ -98,7 +96,7 @@ public class Curs {
         c.put("adresa", adresa);
         c.put("an", an);
         c.put("facultate", facultate);
-        c.put("checkins", checkings);
+        c.put("checkins", checkins);
         c.put("numeProfesor", numeProfesor);
         c.put("emailProfesor", emailProfesor);
         c.put("zi", zi);
@@ -108,7 +106,4 @@ public class Curs {
         return  c;
     }
 
-    public void initializareCheckinuri() {
-        checkings = new HashMap<>();
-    }
 }
