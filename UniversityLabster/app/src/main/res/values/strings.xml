@@ -13,4 +13,6 @@
     <string name="check_in">check-in</string>
     <string name="check_inuri">Check-inuri:</string>
     <string name="cursuri">Cursuri:</string>
+    <string name="student_inainte_de_profesor">profesor: </string>
+    <string name="student_inainte_de_curs">curs: </string>
 </resources>

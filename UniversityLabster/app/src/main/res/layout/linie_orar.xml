@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linOraSiNume"
+        android:id="@+id/linOraSiNumeOrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -17,19 +17,21 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tvOra"
+            android:id="@+id/tvOraOrar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:text="8:00 - 10:00"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvCursAcronim"
+            android:id="@+id/tvCursAcronimOrar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8"
+            android:layout_weight="5"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:text="POO"
@@ -39,13 +41,26 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvCursLung"
+        android:id="@+id/tvCursLungOrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/linOraSiNume"
+        android:layout_below="@+id/linOraSiNumeOrar"
         android:layout_marginTop="5dp"
-        android:paddingLeft="10dp"
-        android:text="Programare Orientata pe Obiecte" />
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp"
+        android:text="Programare Orientata pe Obiecte"
+        android:textSize="16sp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvProfesor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvCursLungOrar"
+        android:layout_marginTop="5dp"
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp"
+        android:text="Marcel Popescu"
+        android:textSize="16sp" />
+
+</RelativeLayout>
