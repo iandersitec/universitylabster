@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener); // setting bottom navigation view
 
-        navigation.setSelectedItemId(R.id.navigationNoutati); // selectam primul element
+        navigation.setSelectedItemId(R.id.navigationProfil); // selectam primul element
 
     }
 

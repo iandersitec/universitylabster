@@ -21,22 +21,19 @@ public class Curs {
     protected String emailProfesor;
     protected String numeProfesor;
 
-    protected String incercariPanaLaIntroducereInOrar = "0";
+    protected String incercariPanaLaIntroducereInOrar ;
 
     protected String checkins="";
 
     public Curs() {
     }
 
-    public String getIncercariPanaLaIntroducereInOrar() {
-        return incercariPanaLaIntroducereInOrar;
-    }
 
     public String getCheckins() {
         return checkins;
     }
 
-    public Curs(String name, String facultate, String adresa, String an, String endTime, String zi, String startTime, String emailProfesor, String numeProfesor) {
+    public Curs(String name, String facultate, String adresa, String an, String endTime, String zi, String startTime, String emailProfesor, String numeProfesor, String incercariPanaLaIntroducereInOrar) {
         this.nume = name;
         this.facultate = facultate;
         this.adresa = adresa;
@@ -46,6 +43,21 @@ public class Curs {
         this.startTime = startTime;
         this.emailProfesor = emailProfesor;
         this.numeProfesor = numeProfesor;
+        this.incercariPanaLaIntroducereInOrar = incercariPanaLaIntroducereInOrar;
+    }
+
+    public String getIncercariPanaLaIntroducereInOrar() {
+        return incercariPanaLaIntroducereInOrar;
+    }
+
+
+    public void setIncercariPanaLaIntroducereInOrar() {
+        this.incercariPanaLaIntroducereInOrar = "5";
+    }
+
+    public void scadePanaLaIntroducereInOrar() {
+        if(Integer.parseInt(incercariPanaLaIntroducereInOrar) >= 2)
+        this.incercariPanaLaIntroducereInOrar = ((Integer.parseInt(incercariPanaLaIntroducereInOrar) - 1)) + "";
     }
 
     public void addCheckin(String numecheckin) {

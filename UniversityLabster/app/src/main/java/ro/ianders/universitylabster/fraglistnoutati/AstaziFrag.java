@@ -71,13 +71,13 @@ public class AstaziFrag extends Fragment {
        ArrayList<Curs> cursuri = new ArrayList<>();
 
         Curs c = new Curs("Intelligence 101", "Faculty of Intelligence", "Building of Intelligence", "1", "12:00", "Luni",
-                "10:00", "", "Arnold Einstein");
+                "10:00", "", "Arnold Einstein", "1");
 
         c.addCheckin("Iusztin");
         c.addCheckin("Iuonac");
 
         Curs c1 = new Curs("Intelligence 201", "Faculty of Intelligence", "Building of Intelligence", "2", "13:00", "Joi", "11:00",
-                "alber@wiseu.edu", "Alberst Scwarzengger" );
+                "alber@wiseu.edu", "Alberst Scwarzengger", "1" );
 
         c1.addCheckin("Mihai");
 

@@ -15,9 +15,128 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         />
 
+    <Button
+        android:id="@+id/btnAdaugaCurs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/primary_light"
+        android:text="@string/adauga_curs" />
+
+    <EditText
+        android:id="@+id/etAdresaCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/adresa"
+        android:inputType="textPersonName"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etAnCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/an"
+        android:inputType="textPersonName"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etEmaiProfesorCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/email_profesor"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etTimpCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/interval_orar_de_format_ss_mm_ee_mm"
+        android:inputType="textPersonName"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etFacultateCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/facultate"
+        android:inputType="textPersonName"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etNumeCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/nume_curs"
+        android:inputType="textPersonName"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etNumeProfesorCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/nume_profesor"
+        android:inputType="textPersonName"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etAZiCursNou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/zi_curs"
+        android:inputType="textPersonName"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnSalveazaCurs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/primary_light"
+        android:text="@string/salveaza_curs"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/lvOrar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+    </ListView>
+
+
 
 </LinearLayout>

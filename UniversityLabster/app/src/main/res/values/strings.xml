@@ -15,4 +15,14 @@
     <string name="cursuri">Cursuri:</string>
     <string name="student_inainte_de_profesor">profesor: </string>
     <string name="student_inainte_de_curs">curs: </string>
+    <string name="adauga_curs">Adauga Curs</string>
+    <string name="adresa">adresa</string>
+    <string name="an">an</string>
+    <string name="email_profesor">email profesor</string>
+    <string name="interval_orar_de_format_ss_mm_ee_mm">interval orar de format ss:mm-ee:mm</string>
+    <string name="facultate">facultate</string>
+    <string name="nume_curs">nume curs</string>
+    <string name="nume_profesor">nume profesor</string>
+    <string name="zi_curs">zi curs</string>
+    <string name="salveaza_curs">Salveaza Curs</string>
 </resources>
