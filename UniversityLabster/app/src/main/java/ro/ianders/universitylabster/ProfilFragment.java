@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 import ro.ianders.universitylabster.DataService.DataService;
 import ro.ianders.universitylabster.dataformat.User;
 
@@ -148,7 +150,15 @@ public class ProfilFragment extends Fragment {
                 password = etParola.getText().toString();
 
                 User user = new User(userID, email, password, username, firstName, lastName, year, faculty);
-                DataService.getInstance().salvareUser(user);
+
+                ArrayList<User> newUserList = new ArrayList<>();
+
+                for(User u: DataService.getInstance().useri)
+                    if(!u.equals(user))
+                        newUserList.add(u);
+                newUserList.add(user);
+
+                DataService.getInstance().salvareUser(newUserList);
 
                 etNume.setEnabled(false);
                 etAn.setEnabled(false);
