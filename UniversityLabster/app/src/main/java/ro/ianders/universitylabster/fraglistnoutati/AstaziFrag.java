@@ -140,7 +140,9 @@ public class AstaziFrag extends Fragment {
                         currentUser = user;
 
 
-            //    for()
+                for(String nume : numeCheckins)
+                    if(nume.equalsIgnoreCase(currentUser.getLastName()) || nume.equalsIgnoreCase(currentUser.getFirstName()))
+                        esteCheckinuit = true;
 
               if(esteCheckinuit) {
 

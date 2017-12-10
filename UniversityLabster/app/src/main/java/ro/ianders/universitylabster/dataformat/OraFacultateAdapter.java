@@ -15,8 +15,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
+import ro.ianders.universitylabster.DataService.DataService;
 import ro.ianders.universitylabster.R;
 
 /**
@@ -61,6 +64,30 @@ public class OraFacultateAdapter extends ArrayAdapter<Curs> {
 
         TextView tvOra = viewLinie.findViewById(R.id.tvOra);
         tvOra.setText(String.format("%s-%s", ore.get(position).getStartTime(), ore.get(position).getEndTime()));
+
+        ImageView iwCheck = viewLinie.findViewById(R.id.iwCheckin);
+
+        String[] numeCheckins = DataService.getInstance().cursuri.get(position).getCheckings().split("#");
+        boolean esteCheckinuit = false;
+
+        User currentUser = null;
+        for(User user : DataService.getInstance().useri)
+            if(user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
+                currentUser = user;
+
+
+        for(String nume : numeCheckins)
+            if(nume.equalsIgnoreCase(currentUser.getLastName()) || nume.equalsIgnoreCase(currentUser.getFirstName()))
+                esteCheckinuit = true;
+
+
+        if(esteCheckinuit) {
+
+            iwCheck.setBackgroundResource(R.drawable.cross); // il scoaten de la check in
+        } else {
+
+            iwCheck.setBackgroundResource(R.drawable.check); // il punem la check in
+        }
 
         return  viewLinie;
     }
