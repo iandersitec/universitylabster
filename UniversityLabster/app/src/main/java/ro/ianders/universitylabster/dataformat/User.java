@@ -75,6 +75,16 @@ public class User {
     }
 
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof User){
+            if( (((User) obj).getEmail()).equals(this.getEmail()) )
+                return true;
+            return false;
+        }
+        return false;
+    }
+
     public HashMap<String, Object> toMap() {
         HashMap<String, Object> myMap = new HashMap<>();
 

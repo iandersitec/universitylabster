@@ -55,54 +55,31 @@ public class ProfilFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
 
 
-        String username = new String(), firstName = new String(), lastName = new String();
-        String year = new String(), faculty = new String(), password = new String();
-        String userID = new String();
 
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-
-        for(User user: DataService.getInstance().useri){
-            if(user.getEmail() == email){
-                userID = user.getUserID();
-                username = user.getUsername();
-                firstName = user.getFirstName();
-                lastName = user.getLastName();
-                year = user.getYear();
-                faculty = user.getFaculty();
-                password = user.getPassword();
-            }
-        }
 
 
         etNume = (EditText) view.findViewById(R.id.etLastName);
-        etNume.setEnabled(false);
-        etNume.setText(lastName);
+
 
         etAn = (EditText) view.findViewById(R.id.etYear);
-        etAn.setEnabled(false);
-        etAn.setText(year);
+
 
         etFacultate = (EditText) view.findViewById(R.id.etFaculty);
-        etFacultate.setEnabled(false);
-        etFacultate.setText(faculty);
+
 
         etEmail = (EditText) view.findViewById(R.id.etEmail);
-        etEmail.setEnabled(false);
-        etEmail.setText(email);
+
 
         etParola = (EditText) view.findViewById(R.id.etPassword);
-        etParola.setEnabled(false);
-        etParola.setText(password);
+
 
         etPrenume = (EditText) view.findViewById(R.id.etFirstName);
-        etPrenume.setEnabled(false);
-        etPrenume.setText(firstName);
+
 
 
         etUsername = (EditText) view.findViewById(R.id.etUsername);
-        etUsername.setEnabled(false);
-        etUsername.setText(username);
 
+        update_profil();
 
         btnLogout = (Button) view.findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +98,6 @@ public class ProfilFragment extends Fragment {
 
                 etNume.setEnabled(true);
                 etAn.setEnabled(true);
-                //etEmail.setEnabled(true);
                 etFacultate.setEnabled(true);
                 etParola.setEnabled(true);
                 etPrenume.setEnabled(true);
@@ -142,12 +118,12 @@ public class ProfilFragment extends Fragment {
                 String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
                 String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                username = etNume.getText().toString();
-                year = etAn.getText().toString();
-                faculty = etFacultate.getText().toString();
-                firstName = etPrenume.getText().toString();
-                lastName = etNume.getText().toString();
-                password = etParola.getText().toString();
+                username = etUsername.getText().toString().trim();
+                year = etAn.getText().toString().trim();
+                faculty = etFacultate.getText().toString().trim();
+                firstName = etPrenume.getText().toString().trim();
+                lastName = etNume.getText().toString().trim();
+                password = etParola.getText().toString().trim();
 
                 User user = new User(userID, email, password, username, firstName, lastName, year, faculty);
 
@@ -160,19 +136,59 @@ public class ProfilFragment extends Fragment {
 
                 DataService.getInstance().salvareUser(newUserList);
 
-                etNume.setEnabled(false);
+                update_profil();
+                /*etNume.setEnabled(false);
                 etAn.setEnabled(false);
-                //etEmail.setEnabled(false);
                 etFacultate.setEnabled(false);
                 etParola.setEnabled(false);
                 etPrenume.setEnabled(false);
-                etUsername.setEnabled(false);
+                etUsername.setEnabled(false);*/
 
                 btnEdit.setVisibility(View.VISIBLE);
                 btnSave.setVisibility(View.INVISIBLE);
             }
         });
         return view;
+    }
+    private void update_profil(){
+        String username = new String(), firstName = new String(), lastName = new String();
+        String year = new String(), faculty = new String(), password = new String();
+
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        User u = new User("testid",email,"password");
+
+        for(User user: DataService.getInstance().useri){
+            if(user.equals(u)){
+                username = user.getUsername();
+                firstName = user.getFirstName();
+                lastName = user.getLastName();
+                year = user.getYear();
+                faculty = user.getFaculty();
+                password = user.getPassword();
+            }
+        }
+
+        etNume.setEnabled(false);
+        etNume.setText(lastName);
+
+        etAn.setEnabled(false);
+        etAn.setText(year);
+
+        etFacultate.setEnabled(false);
+        etFacultate.setText(faculty);
+
+        etEmail.setEnabled(false);
+        etEmail.setText(email);
+
+        etPrenume.setEnabled(false);
+        etPrenume.setText(firstName);
+
+        etParola.setEnabled(false);
+        etParola.setText(password);
+
+        etUsername.setEnabled(false);
+        etUsername.setText(username);
     }
 
 }
