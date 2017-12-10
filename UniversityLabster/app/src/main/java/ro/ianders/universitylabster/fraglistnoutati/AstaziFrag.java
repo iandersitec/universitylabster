@@ -67,7 +67,7 @@ public class AstaziFrag extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-      /* ArrayList<Curs> cursuri = new ArrayList<>();
+       ArrayList<Curs> cursuri = new ArrayList<>();
 
         Curs c = new Curs("Intelligence 101", "Faculty of Intelligence", "Building of Intelligence", "1", "12:00", "Luni",
                 "10:00", "", "Arnold Einstein");
@@ -83,7 +83,7 @@ public class AstaziFrag extends Fragment {
         cursuri.add(c);
         cursuri.add(c1);
 
-        DataService.getInstance().salvareCurs(cursuri); /*
+        DataService.getInstance().salvareCurs(cursuri);
 
 
         OraFacultateAdapter adapter = new OraFacultateAdapter(getContext(), DataService.getInstance().cursuri);
@@ -103,7 +103,7 @@ public class AstaziFrag extends Fragment {
 
                 ImageView iwChecking = view.findViewById(R.id.iwCheckin);
 
-                if (DataService.getInstance().cursuri.get(position).getCheckings().containsKey(
+              /*  if (DataService.getInstance().cursuri.get(position).getCheckings().containsKey(
                         FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
 
                     String key = FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@")[0];
@@ -118,7 +118,7 @@ public class AstaziFrag extends Fragment {
                     iwChecking.setBackgroundResource(R.drawable.check);
 
 
-                }
+                } */
             }
 
 

@@ -1,6 +1,7 @@
 package ro.ianders.universitylabster.DataService;
 
 import android.provider.ContactsContract;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -81,12 +82,13 @@ public class DataService {
 
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.child("cursuri").getChildren()) {
                     Curs curs = dataSnapshot1.getValue(Curs.class);
+                    Log.e("Checkins", curs.getCheckings().toString());
                     cursuri.add(curs);
                 }
 
 
-                for(Curs curs : cursuri)
-                    curs.initializareCheckinuri();
+              //  for(Curs curs : cursuri)
+               //     curs.initializareCheckinuri();
             }
 
             @Override
