@@ -104,34 +104,10 @@ public class AstaziFrag extends Fragment {
 
                 ImageView iwChecking = view.findViewById(R.id.iwCheckin);
 
-              /*  if (DataService.getInstance().cursuri.get(position).getCheckings().containsKey(
-                        FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
-
-                    String key = FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@")[0];
-
-                    DataService.getInstance().cursuri.get(position).getCheckings().remove(key);
-                    iwChecking.setBackgroundResource(R.drawable.cross);
-
-                } else {
-
-                    String key = FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@")[0];
-                    DataService.getInstance().cursuri.get(position).getCheckings().put(key, key);
-                    iwChecking.setBackgroundResource(R.drawable.check);
-
-
-                } */
-
 
               String[] numeCheckins = DataService.getInstance().cursuri.get(position).getCheckings().split("#");
               boolean esteCheckinuit = false;
 
-
-                 /* for (String nume : numeCheckins)
-                      for (User user : DataService.getInstance().useri)
-                          if (nume.equals(user.getFirstName()) || nume.equals(user.getLastName()))
-                              if (user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
-                                  esteCheckinuit = true;
-*/
 
               //get user
                 User currentUser = null;

@@ -21,12 +21,22 @@ public class Curs {
     protected String emailProfesor;
     protected String numeProfesor;
 
+    protected String incercariPanaLaIntroducereInOrar = "0";
+
     protected String checkins="";
 
     public Curs() {
     }
 
-    public Curs(String name, String facultate, String adresa, String an, String endTime,String zi, String startTime, String emailProfesor, String numeProfesor) {
+    public String getIncercariPanaLaIntroducereInOrar() {
+        return incercariPanaLaIntroducereInOrar;
+    }
+
+    public String getCheckins() {
+        return checkins;
+    }
+
+    public Curs(String name, String facultate, String adresa, String an, String endTime, String zi, String startTime, String emailProfesor, String numeProfesor) {
         this.nume = name;
         this.facultate = facultate;
         this.adresa = adresa;
@@ -106,6 +116,7 @@ public class Curs {
         c.put("zi", zi);
         c.put("endTime", endTime);
         c.put("startTime", startTime);
+        c.put("incercariPanaLaIntroducereInOrar", incercariPanaLaIntroducereInOrar);
 
         return  c;
     }
