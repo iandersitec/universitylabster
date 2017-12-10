@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import ro.ianders.universitylabster.dataformat.Curs;
+import ro.ianders.universitylabster.dataformat.Link;
 import ro.ianders.universitylabster.dataformat.User;
 
 /**
@@ -25,7 +26,7 @@ public class DataService {
 
     public final ArrayList<User> useri;
     public final ArrayList<Curs> cursuri;
-    public final ArrayList<String> linkuri;
+    public final ArrayList<Link> linkuri;
 
     public DatabaseReference databaseReferenceUseri;
     public DatabaseReference databaseReferenceCursuri;
@@ -102,6 +103,12 @@ public class DataService {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                linkuri.clear();
+
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Link link = dataSnapshot1.getValue(Link.class);
+                    linkuri.add(link);
+                }
             }
 
             @Override
@@ -109,6 +116,21 @@ public class DataService {
 
             }
         });
+    }
+
+    public void salvareLink(ArrayList<Link> linkuri) {
+
+        databaseReferenceLinkuri.removeValue();
+
+        String key;
+        HashMap<String, Object> u = new HashMap<>(); // date de salvat
+
+        for(Link link : linkuri) {
+            key = databaseReferenceLinkuri.push().getKey();
+            u.put(key, link.toMap());
+        }
+
+        databaseReferenceLinkuri.updateChildren(u); // salveaza useri
     }
 
     public void salvareUser(ArrayList<User> useri) {
