@@ -34,10 +34,10 @@ public class LoginActivity extends AppCompatActivity {
 
         //iau instanta de pe firebase
         firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser()!=null){
+        /*if(firebaseAuth.getCurrentUser()!=null){
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
          //   finish();
-        }
+        }*/
 
         progressDialog = new ProgressDialog(this);
 
