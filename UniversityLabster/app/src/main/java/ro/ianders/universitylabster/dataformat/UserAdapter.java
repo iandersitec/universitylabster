@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -48,7 +50,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         LinearLayout linLinkDeTrimis = viewLinie.findViewById(R.id.linLinkDeTrimis);
         linLinkDeTrimis.setVisibility(View.INVISIBLE); // apare doar cand apasam un element din lista pentru a trimite linkul
 
-        tvNume.setText(String.format("%s", useri.get(position).getEmail()));
+        tvNume.setText(String.format("%s %s", useri.get(position).getLastName(), useri.get(position).getFirstName()));
 
         String resDinStringXml;
 
@@ -65,9 +67,7 @@ public class UserAdapter extends ArrayAdapter<User> {
             resDinStringXml = "probleme cu baza de date";
         }
 
-
-        tvEmail.setText(String.format("%s", resDinStringXml, useri.get(position).getEmail()));
-
+        tvEmail.setText(String.format("%s %s", resDinStringXml, useri.get(position).getEmail()));
 
         return  viewLinie;
     }
