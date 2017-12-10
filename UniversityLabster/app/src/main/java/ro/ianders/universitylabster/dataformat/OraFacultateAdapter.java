@@ -30,10 +30,12 @@ public class OraFacultateAdapter extends ArrayAdapter<Curs> {
 
     private Context context;
     private ArrayList<Curs> ore;
+    private int layout;
 
 
-    public OraFacultateAdapter(@NonNull Context context, @NonNull ArrayList<Curs> objects) {
-        super(context, R.layout.linie_curs_checkin, objects);
+    public OraFacultateAdapter(@NonNull Context context,int layout, @NonNull ArrayList<Curs> objects) {
+        super(context, layout, objects);
+        this.layout = layout;
         this.context = context;
         ore = objects;
     }
@@ -45,7 +47,7 @@ public class OraFacultateAdapter extends ArrayAdapter<Curs> {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View viewLinie = inflater.inflate(R.layout.linie_curs_checkin, parent, false);
+        View viewLinie = inflater.inflate(layout, parent, false);
 
         TextView tvCursAcronim = viewLinie.findViewById(R.id.tvCursAcronim);
         TextView tvCursLung = viewLinie.findViewById(R.id.tvCursLung);
@@ -65,28 +67,30 @@ public class OraFacultateAdapter extends ArrayAdapter<Curs> {
         TextView tvOra = viewLinie.findViewById(R.id.tvOra);
         tvOra.setText(String.format("%s-%s", ore.get(position).getStartTime(), ore.get(position).getEndTime()));
 
-        ImageView iwCheck = viewLinie.findViewById(R.id.iwCheckin);
+        if(layout == R.layout.linie_curs_checkin) {
+            ImageView iwCheck = viewLinie.findViewById(R.id.iwCheckin);
 
-        String[] numeCheckins = DataService.getInstance().cursuri.get(position).getCheckings().split("#");
-        boolean esteCheckinuit = false;
+            String[] numeCheckins = DataService.getInstance().cursuri.get(position).getCheckings().split("#");
+            boolean esteCheckinuit = false;
 
-        User currentUser = null;
-        for(User user : DataService.getInstance().useri)
-            if(user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
-                currentUser = user;
-
-
-        for(String nume : numeCheckins)
-            if(nume.equalsIgnoreCase(currentUser.getLastName()) || nume.equalsIgnoreCase(currentUser.getFirstName()))
-                esteCheckinuit = true;
+            User currentUser = null;
+            for (User user : DataService.getInstance().useri)
+                if (user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
+                    currentUser = user;
 
 
-        if(esteCheckinuit) {
+            for (String nume : numeCheckins)
+                if (nume.equalsIgnoreCase(currentUser.getLastName()) || nume.equalsIgnoreCase(currentUser.getFirstName()))
+                    esteCheckinuit = true;
 
-            iwCheck.setBackgroundResource(R.drawable.cross); // il scoaten de la check in
-        } else {
 
-            iwCheck.setBackgroundResource(R.drawable.check); // il punem la check in
+            if (esteCheckinuit) {
+
+                iwCheck.setBackgroundResource(R.drawable.cross); // il scoaten de la check in
+            } else {
+
+                iwCheck.setBackgroundResource(R.drawable.check); // il punem la check in
+            }
         }
 
         return  viewLinie;

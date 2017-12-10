@@ -1,14 +1,11 @@
 package ro.ianders.universitylabster;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +13,7 @@ import android.widget.Toast;
 
 import ro.ianders.universitylabster.fraglistnoutati.AstaziFrag;
 import ro.ianders.universitylabster.fraglistnoutati.LinkFrag;
-import ro.ianders.universitylabster.fraglistnoutati.SaptamanaFrag;
+import ro.ianders.universitylabster.fraglistnoutati.SeeCheckInFrag;
 
 
 /**
@@ -76,7 +73,7 @@ public class NoutatiFragment extends Fragment {
 
                         case "saptamana":
                             manager.beginTransaction()
-                                    .replace(R.id.fragContainerNoutatiInlocuit, new SaptamanaFrag())
+                                    .replace(R.id.fragContainerNoutatiInlocuit, new SeeCheckInFrag())
                                     .commit();
                             break;
 

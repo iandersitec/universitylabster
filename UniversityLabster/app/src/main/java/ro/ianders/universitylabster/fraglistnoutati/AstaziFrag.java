@@ -87,7 +87,7 @@ public class AstaziFrag extends Fragment {
         DataService.getInstance().salvareCurs(cursuri);
 
 
-        OraFacultateAdapter adapter = new OraFacultateAdapter(getContext(), DataService.getInstance().cursuri);
+        OraFacultateAdapter adapter = new OraFacultateAdapter(getContext(),R.layout.linie_curs_checkin, DataService.getInstance().cursuri);
 
         for(Curs curs: DataService.getInstance().cursuri)
             Log.e("cuuuuuuuuuurs", curs.getNume());
@@ -159,11 +159,15 @@ public class AstaziFrag extends Fragment {
                   iwChecking.setBackgroundResource(R.drawable.cross); // il scoaten de la check in
               } else {
 
-                  if(currentUser != null)
+                  if(currentUser != null) {
                       DataService.getInstance().cursuri.get(position).addCheckin(currentUser.getLastName());
 
-                  iwChecking.setBackgroundResource(R.drawable.check); // il punem la check in
+                      iwChecking.setBackgroundResource(R.drawable.check); // il punem la check in
+                  }
               }
+
+              if(currentUser == null)
+                  Toast.makeText(getContext(), "Va rog sa va puneti un nume de familie", Toast.LENGTH_SHORT).show();
 
             }
 
