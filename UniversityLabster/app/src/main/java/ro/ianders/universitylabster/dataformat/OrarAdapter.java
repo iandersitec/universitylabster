@@ -86,6 +86,13 @@ public class OrarAdapter  extends ArrayAdapter<Curs>{
         TextView profesor = viewLinie.findViewById(R.id.tvProfesor);
         profesor.setText(String.format("%s %s",resDinStringXmlProfesor, ore.get(position).getNumeProfesor()));
 
+        TextView incercari = viewLinie.findViewById(R.id.tvIncercari);
+        incercari.setText(DataService.getInstance().cursuri.get(position).getIncercariPanaLaIntroducereInOrar());
+
+       // if(DataService.getInstance().cursuri.get(position).getIncercariPanaLaIntroducereInOrar().equals("1")) {
+            incercari.setVisibility(View.GONE);
+      //  }
+
         return  viewLinie;
     }
 }
