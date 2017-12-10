@@ -113,7 +113,7 @@ public class DataService {
 
     public void salvareUser(ArrayList<User> useri) {
 
-        databaseReferenceUseri.child("useri").removeValue();
+        databaseReferenceUseri.removeValue();
 
         String key;
         HashMap<String, Object> u = new HashMap<>(); // date de salvat
