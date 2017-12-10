@@ -86,6 +86,9 @@ public class Curs {
         return an;
     }
 
+    public HashMap<String, Object> getCheckings() {
+        return checkings;
+    }
 
     public HashMap<String, Object> toMap() {
 
@@ -103,5 +106,9 @@ public class Curs {
         c.put("startTime", startTime);
 
         return  c;
+    }
+
+    public void initializareCheckinuri() {
+        checkings = new HashMap<>();
     }
 }

@@ -2,7 +2,9 @@ package ro.ianders.universitylabster.fraglistnoutati;
 
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -18,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,7 +67,7 @@ public class AstaziFrag extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-      /*  Curs[] cursuri = new Curs[2];
+      /* ArrayList<Curs> cursuri = new ArrayList<>();
 
         Curs c = new Curs("Intelligence 101", "Faculty of Intelligence", "Building of Intelligence", "1", "12:00", "Luni",
                 "10:00", "", "Arnold Einstein");
@@ -76,10 +80,10 @@ public class AstaziFrag extends Fragment {
 
         c1.addCheckin("Mihai");
 
-        cursuri[0] = c;
-        cursuri[1] = c1;
+        cursuri.add(c);
+        cursuri.add(c1);
 
-        DataService.getInstance().salvareCurs(cursuri); */
+        DataService.getInstance().salvareCurs(cursuri); /*
 
 
         OraFacultateAdapter adapter = new OraFacultateAdapter(getContext(), DataService.getInstance().cursuri);
@@ -99,9 +103,27 @@ public class AstaziFrag extends Fragment {
 
                 ImageView iwChecking = view.findViewById(R.id.iwCheckin);
 
+                if (DataService.getInstance().cursuri.get(position).getCheckings().containsKey(
+                        FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+
+                    String key = FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@")[0];
+
+                    DataService.getInstance().cursuri.get(position).getCheckings().remove(key);
+                    iwChecking.setBackgroundResource(R.drawable.cross);
+
+                } else {
+
+                    String key = FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@")[0];
+                    DataService.getInstance().cursuri.get(position).getCheckings().put(key, key);
+                    iwChecking.setBackgroundResource(R.drawable.check);
 
 
+                }
             }
+
+
+
+
         });
 
 

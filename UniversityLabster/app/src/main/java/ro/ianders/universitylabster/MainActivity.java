@@ -107,12 +107,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { // pentru optiuni meniu
-       /* int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+
+        if (item.getItemId() == R.id.menuRefresh) {
+
+        DataService.getInstance().salvareCurs(DataService.getInstance().cursuri);
+        DataService.getInstance().salvareUser(DataService.getInstance().useri);
+
         }
 
-        return super.onOptionsItemSelected(item); */
        return true;
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        DataService.getInstance().salvareCurs(DataService.getInstance().cursuri);
+        DataService.getInstance().salvareUser(DataService.getInstance().useri);
+
     }
 }

@@ -78,10 +78,15 @@ public class DataService {
 
                 cursuri.clear();
 
+
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.child("cursuri").getChildren()) {
                     Curs curs = dataSnapshot1.getValue(Curs.class);
                     cursuri.add(curs);
                 }
+
+
+                for(Curs curs : cursuri)
+                    curs.initializareCheckinuri();
             }
 
             @Override
@@ -104,8 +109,9 @@ public class DataService {
         });
     }
 
-    public void salvareUser(User... useri) {
+    public void salvareUser(ArrayList<User> useri) {
 
+        databaseReferenceUseri.child("useri").removeValue();
 
         String key;
         HashMap<String, Object> u = new HashMap<>(); // date de salvat
@@ -119,8 +125,9 @@ public class DataService {
     }
 
 
-    public void salvareCurs(Curs... cursuri) {
+    public void salvareCurs(ArrayList<Curs> cursuri) {
 
+        databaseReferenceCursuri.child("cursuri").removeValue();
 
         String key;
         HashMap<String, Object> u = new HashMap<>(); // date de salvat
