@@ -56,21 +56,17 @@ public class LinkFrag extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        /*ArrayList<String> a = new ArrayList<String>() {{
-            add("Paul Link");
-            }
-        };*/
 
         String destinatar = FirebaseAuth.getInstance().getCurrentUser().getEmail().trim();
-        ArrayList<String> mesages = new ArrayList<>();
+        ArrayList<Link> mesages = new ArrayList<>();
 
         for(Link l: DataService.getInstance().linkuri){
             if(l.getDestinatar().trim().equals(destinatar)){
-                mesages.add(l.getMesaj());
+                mesages.add(l);
             }
         }
 
-        lvNoutatiLinkuri.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, mesages));
+        lvNoutatiLinkuri.setAdapter(new LinkAdapter(getContext(), mesages));
     }
 
 }
