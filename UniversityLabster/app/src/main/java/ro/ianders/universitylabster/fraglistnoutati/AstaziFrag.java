@@ -126,17 +126,21 @@ public class AstaziFrag extends Fragment {
               boolean esteCheckinuit = false;
 
 
-                  for (String nume : numeCheckins)
+                 /* for (String nume : numeCheckins)
                       for (User user : DataService.getInstance().useri)
                           if (nume.equals(user.getFirstName()) || nume.equals(user.getLastName()))
                               if (user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
                                   esteCheckinuit = true;
+*/
 
               //get user
                 User currentUser = null;
                 for(User user : DataService.getInstance().useri)
                     if(user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
                         currentUser = user;
+
+
+            //    for()
 
               if(esteCheckinuit) {
 
