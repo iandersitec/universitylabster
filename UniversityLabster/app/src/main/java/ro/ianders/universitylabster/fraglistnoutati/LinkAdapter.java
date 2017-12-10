@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ro.ianders.universitylabster.DataService.DataService;
 import ro.ianders.universitylabster.R;
 import ro.ianders.universitylabster.dataformat.Link;
 import ro.ianders.universitylabster.dataformat.User;
@@ -43,7 +44,13 @@ public class LinkAdapter extends ArrayAdapter<Link> {
         TextView tvMesaj = view.findViewById(R.id.tvMesaj);
         TextView tvEmail = view.findViewById(R.id.tvEmail);
 
-        tvExpeditor.setText(String.format("%s", links.get(position).getDestinatar()));
+        String sender = new String("Necunoscut");
+        for(User u: DataService.getInstance().useri){
+            if(u.getEmail().equals(links.get(position).getExpeditor())){
+                sender = u.getLastName() + " " +u.getFirstName();
+            }
+        }
+        tvExpeditor.setText(String.format("%s", sender));
         tvEmail.setText(String.format("%s", links.get(position).getExpeditor()));
         tvMesaj.setText(String.format("%s", links.get(position).getMesaj()));
 
